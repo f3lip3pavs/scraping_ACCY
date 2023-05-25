@@ -8,7 +8,7 @@ function delay(time) {
 
 async function getParsedBody(url){
     
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch({headless: 'new'});
     const page = await browser.newPage()
 
     await page.goto(url)
@@ -34,7 +34,6 @@ async function getParsedBody(url){
                 if(index.innerHTML != undefined)
                 {
                     results.push(index.innerHTML)
-                    console.log('dentro do if: ' + results)
                     return results
                 }
             })
@@ -43,11 +42,16 @@ async function getParsedBody(url){
         })
 
         ) 
-        return scrapObj[0].then(res => {console.log(res)})
+        return scrapObj[0].then(res => {return res})
     })
+
+    
+    return scrapObj.then(res => {return res})
     
 }
 
-getParsedBody('https://brandmark.io/logo-rank/')
+const teste = getParsedBody('https://brandmark.io/logo-rank/')
+
+teste.then(res => {console.log(res)})
 
 module.exports = {getParsedBody}
