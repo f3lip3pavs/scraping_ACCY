@@ -1,12 +1,11 @@
 const {getParsedBody} = require('./scrap')
 const {test, expect} = require('@jest/globals')
 
-// import {getParsedBody} from './scrap'
-// import {test, expect} from 'jest'
-
 test('teste: getParsedBody function', ()=>{
-    const input = 'dado'
+    const input = 'https://brandmark.io/logo-rank/'
     const func = getParsedBody(input)
-    const expected = 'dado'
+    const expected = []
     expect(func).toEqual(expected)
 })
+
+
