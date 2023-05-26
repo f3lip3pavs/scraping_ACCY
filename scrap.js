@@ -6,25 +6,25 @@ function delay(time) {
 
 }
 
-async function getParsedBody(url){
-    
-    const browser = await puppeteer.launch({headless: 'new'});
-    const page = await browser.newPage()
-
-    await page.goto(url)
+//recebe um arquivo de imagem e a pagina atual como parametros e envia o arquivo de imagem
+async function sendFile(imgFile, actualPage){
 
     const [fileChooser] = await Promise.all([
-        page.waitForFileChooser(),
-        page.click('#upload')
+        actualPage.waitForFileChooser(),
+        actualPage.click('#upload')
     ])
 
-    await fileChooser.accept(['logo3.jpg'])
 
-    const scrapObj = delay(5000).then(() => {    
+    await fileChooser.accept([imgFile])
+}
+
+async function getData(time, actualPage){
+
+    const scrapObj = delay(time).then(async () => {    
         
         const scrapObj = []
         
-        scrapObj.push(page.evaluate(() => {
+        scrapObj.push(actualPage.evaluate(() => {
         
             const containers = document.querySelectorAll('.col-md-12 .progressbar-text')
             const results = []
@@ -45,13 +45,29 @@ async function getParsedBody(url){
         return scrapObj[0].then(res => {return res})
     })
 
+    return scrapObj
+}
+
+async function getParsedBody(url, img){
     
+    const browser = await puppeteer.launch({headless: 'new'});
+    const page = await browser.newPage()
+
+    await page.goto(url)
+
+    sendFile(img, page)
+
+    const scrapObj = getData(5000, page)
+
     return scrapObj.then(res => {return res})
     
 }
 
-const teste = getParsedBody('https://brandmark.io/logo-rank/')
+const teste = getParsedBody('https://brandmark.io/logo-rank/', 'accy.png')
 
 teste.then(res => {console.log(res)})
 
-module.exports = {getParsedBody}
+module.exports = {
+    getParsedBody,
+    delay
+    }
