@@ -1,14 +1,13 @@
-// import Dropzone from 'react-dropzone';
+//import Dropzone from 'react-dropzone';
 import './App.css';
-import Header, {Main, File} from "./components"
+import Header, {Main, Dropz} from "./components"
 
 function App() {
   return (
     <main className="App-header">
       <Header></Header>
-      <Main>
-        <File/>
-      </Main>
+      <Main/>
+      <Dropz/>
     </main>
   );
 }

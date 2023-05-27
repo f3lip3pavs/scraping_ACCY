@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css';
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
@@ -22,23 +22,38 @@ function Main(){
     )
 }
 
-function File() {
+function Dropz() {
+
+  
+  const [file, setFile] = useState(null)
+  
+
   const onDrop = useCallback(acceptedFiles => {
+    setFile(acceptedFiles[0])
     console.log(acceptedFiles)
   }, [])
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({
+    onDrop,
+    maxFiles: 1,
+    accept: {
+      'image/jpge': ['.jpeg', '.png']
+    }
+  })
+
+  if (file) return null
 
   return (
-    <div {...getRootProps()}>
+    <div id="dropZone" {...getRootProps()}>
       <input {...getInputProps()} />
       {
         isDragActive ?
-          <p>Drop the files here ...</p> :
-          <p>Drag 'n' drop some files here, or click to select files</p>
+          <p>Solte o arquivo aqui...</p> 
+          :
+          <p><strong>Arraste e solte o arquivo aqui</strong>, ou click para selecionar</p>   
       }
     </div>
   )
 }
 
 export default Header
-export {Main, File}
+export {Main, Dropz}

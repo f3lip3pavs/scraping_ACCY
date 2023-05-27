@@ -9,6 +9,18 @@
   color: white;
 }
 
+#dropZone{
+  width: 450px;
+  height: 300px;
+  background-color: #282c34;
+  border: 2px dashed whitesmoke;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+}
+
 /* ======================== */
 
 *{
