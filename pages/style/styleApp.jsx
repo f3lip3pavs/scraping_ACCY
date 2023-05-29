@@ -1,47 +1,16 @@
-.App {
-  text-align: center;
-}
+import styled from "styled-components"
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  /* display: flex; */
-  color: white;
-}
-
-#dropZone{
-  width: 450px;
-  height: 300px;
-  background-color: #282c34;
-  border: 2px dashed whitesmoke;
-  border-radius: 10px;
-  margin: auto;
-  display: flex;
-  align-items: center;  
-  justify-content: center;
-}
-
-/* ======================== */
-
-*{
-  padding: 0;
-  margin: 0;
-}
-
-body{
-  background-color: #202020;
-}
-
-.container{
+export const Container = styled.div`
+  
   display: flex;
   justify-content: space-around;
   padding-left: 200px;
   padding-right: 200px;
   margin-top: 50px;
-  
-}
+`;
 
-#media{
+export const Media = styled.div`
+  
   width: 150px;
   height: 150px;
   border: 10px solid #404040;
@@ -51,9 +20,11 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white
+`;
 
-}
-#aut{
+export const Aut = styled.div`
+  
   width: 100px;
   height: 100px;
   border: 10px solid whitesmoke;
@@ -62,8 +33,11 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-#clareza{
+  color: white
+`;
+
+export const Sharpness = styled.div`
+  
   width: 100px;
   height: 100px;
   border: 10px solid whitesmoke;
@@ -74,8 +48,11 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-#cor{
+  color: white
+`;
+
+export const Color = styled.div`
+  
   width: 100px;
   height: 100px;
   border: 10px solid whitesmoke;
@@ -84,13 +61,19 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  color: white
+`;
 
-span{
-  display: block;
-  color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 25px;
-}
+export const DropStyle = styled.div`
 
-
+  width: 450px;
+  height: 300px;
+  background-color: #282c34;
+  border: 2px dashed whitesmoke;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  color: white
+`

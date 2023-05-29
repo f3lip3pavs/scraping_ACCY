@@ -1,10 +1,10 @@
-//import Dropzone from 'react-dropzone';
-import './App.css';
 import Header, {Main, Dropz} from "./components"
+import {GlobalStyle} from './style/GlobalStyle'
 
 function App() {
   return (
-    <main className="App-header">
+    <main>
+      <GlobalStyle/>
       <Header></Header>
       <Main/>
       <Dropz/>

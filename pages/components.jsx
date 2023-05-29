@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import './App.css';
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
+import {Container, Media, Aut, Sharpness, Color, DropStyle} from './style/styleApp'
 
 function Header(){
     return (
@@ -11,13 +11,12 @@ function Header(){
 
 function Main(){
     return (
-
-        <div class="container">
-            <div id="media" class="metric"><span>50%</span></div>
-            <div id="aut" class="metric"><span>20%</span></div>
-            <div id="clareza" class="metric"><span>82%</span></div>
-            <div id="cor" class="metric"><span>23%</span></div>
-        </div>
+        <Container>
+            <Media><span>50%</span></Media>
+            <Aut><span>20%</span></Aut>
+            <Sharpness><span>82%</span></Sharpness>
+            <Color><span>23%</span></Color>
+        </Container>
 
     )
 }
@@ -43,7 +42,7 @@ function Dropz() {
   if (file) return null
 
   return (
-    <div id="dropZone" {...getRootProps()}>
+    <DropStyle {...getRootProps()}>
       <input {...getInputProps()} />
       {
         isDragActive ?
@@ -51,7 +50,7 @@ function Dropz() {
           :
           <p><strong>Arraste e solte o arquivo aqui</strong>, ou click para selecionar</p>   
       }
-    </div>
+    </DropStyle>
   )
 }
 

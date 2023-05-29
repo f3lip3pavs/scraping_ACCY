@@ -1,17 +1,18 @@
 {
+  "dependencies": {
+    "next": "^13.4.4",
+    "puppeteer": "^20.4.0",
+    "react-dropzone": "^14.2.3",
+    "styled-components": "^5.3.11"
+  },
   "name": "scraping_",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "dev": "next dev"
   },
-  "author": "Felipe Pavan",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "jest": "^29.5.0"
-  },
-  "dependencies": {
-    "puppeteer": "^20.4.0"
-  }
+  "description": ""
 }
