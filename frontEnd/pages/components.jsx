@@ -25,31 +25,55 @@ function Dropz() {
 
   
   const [file, setFile] = useState(null)
-  
 
   const onDrop = useCallback(acceptedFiles => {
     setFile(acceptedFiles[0])
-    console.log(acceptedFiles)
+
+    const upload = (file) =>{
+
+      const fileForm = new FormData()
+      fileForm.append('file', file)
+      
+  
+        fetch('http://192.168.0.16:3001/post/up', {
+          
+          headers:{
+            contentType: 'multipart/form-data'
+          },
+          method: 'POST',
+          body: fileForm
+        })
+        .then(() => {
+          setFile(null)
+        }).catch(err => {
+          console.log('erro! ', err)
+        })
+
+        
+
+      }  
+
+      upload(file)
+
   }, [])
+
   const {getRootProps, getInputProps, isDragActive} = useDropzone({
     onDrop,
     maxFiles: 1,
     accept: {
-      'image/jpge': ['.jpeg', '.png']
+      'image/jpge': ['.jpeg', '.png', '.jpg']
     }
   })
 
-  if (file) return null
-
   return (
-    <DropStyle {...getRootProps()}>
-      <input {...getInputProps()} />
-      {
-        isDragActive ?
-          <p>Solte o arquivo aqui...</p> 
-          :
-          <p><strong>Arraste e solte o arquivo aqui</strong>, ou click para selecionar</p>   
-      }
+    <DropStyle {...getRootProps()} >
+        <input {...getInputProps()}/>
+        {
+          isDragActive ?
+            <p>Solte o arquivo aqui...</p> 
+            :
+            <p><strong>Arraste e solte o arquivo aqui</strong>, ou click para selecionar</p>   
+        }
     </DropStyle>
   )
 }

@@ -18,14 +18,15 @@ const list = []
 route.post('/up', upload.single('file'), (req, res, next) => {
         
         try{
-          console.log(req.file.filename)
+          console.log('arquivo enviado para porta 3001')
+          console.log(req.file)
           getParsedBody('https://brandmark.io/logo-rank/', req.file.filename)
           .then(res => {
             list.push(...res)
             setTimeout(()=>{console.log(list)}, 10000)
             return list
           })
-            res.send(req.file)
+            res.send('arquivo enviado para porta 3001')
         }catch(err){
             console.log(err)
         }

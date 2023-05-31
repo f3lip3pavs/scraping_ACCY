@@ -5,7 +5,7 @@ function App() {
   return (
     <main>
       <GlobalStyle/>
-      <Header></Header>
+      <Header/>
       <Main/>
       <Dropz/>
     </main>
