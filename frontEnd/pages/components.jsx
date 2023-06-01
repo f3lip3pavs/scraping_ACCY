@@ -23,11 +23,7 @@ function Main(){
 
 function Dropz() {
 
-  
-  const [file, setFile] = useState(null)
-
   const onDrop = useCallback(acceptedFiles => {
-    setFile(acceptedFiles[0])
 
     const upload = (file) =>{
 
@@ -42,18 +38,11 @@ function Dropz() {
           },
           method: 'POST',
           body: fileForm
-        })
-        .then(() => {
-          setFile(null)
-        }).catch(err => {
-          console.log('erro! ', err)
-        })
-
-        
+        })    
 
       }  
 
-      upload(file)
+      upload(acceptedFiles[0])
 
   }, [])
 
