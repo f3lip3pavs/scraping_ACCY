@@ -1,6 +1,7 @@
 const route = require('express').Router()
 const multer = require('multer')
 const {getParsedBody} = require('./scrap')
+const file = require('fs')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -13,7 +14,7 @@ const storage = multer.diskStorage({
   
 const upload = multer({ storage: storage })
 
-const list = []
+let list = []
 
 route.post('/up', upload.single('file'), (req, res, next) => {
         
@@ -23,10 +24,15 @@ route.post('/up', upload.single('file'), (req, res, next) => {
           getParsedBody('https://brandmark.io/logo-rank/', req.file.filename)
           .then(res => {
             list.push(...res)
-            setTimeout(()=>{console.log(list)}, 10000)
+            setTimeout(()=>{console.log(list)}, 3000)
+            file.unlink(`files/${req.file.path.slice(6)}`, (err)=>{
+              if(err)
+                console.log(err)
+            })
             return list
           })
             res.send('arquivo enviado para porta 3001')
+            list = []
         }catch(err){
             console.log(err)
         }

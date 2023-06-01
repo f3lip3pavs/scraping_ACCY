@@ -53,7 +53,7 @@ async function getData(time, actualPage){
 async function getParsedBody(url, img){
 
     const browser = await puppeteer.launch({
-        headless: false
+        headless: 'new'
     });
     const page = await browser.newPage()
 
