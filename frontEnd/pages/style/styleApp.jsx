@@ -20,7 +20,7 @@ export const Media = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white
+  color: white;
 `;
 
 export const Aut = styled.div`
@@ -33,7 +33,7 @@ export const Aut = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white
+  color: white;
 `;
 
 export const Sharpness = styled.div`
@@ -48,7 +48,7 @@ export const Sharpness = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white
+  color: white;
 `;
 
 export const Color = styled.div`
@@ -61,7 +61,7 @@ export const Color = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white
+  color: white;
 `;
 
 export const DropStyle = styled.div`
@@ -75,5 +75,7 @@ export const DropStyle = styled.div`
   display: flex;
   align-items: center;  
   justify-content: center;
-  color: white
-`
+  color: white;
+`;
+
+export const Card = styled.div

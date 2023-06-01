@@ -67,19 +67,6 @@ async function getParsedBody(url, img){
 
 }
 
-
-// const list = []
-
-// getParsedBody('https://brandmark.io/logo-rank/', '1685467912950-9795024.png').then(res => {
-
-//     list.push(...res)
-//     return list
-
-// })
-
-// setTimeout(()=>{console.log(list)}, 10000)
-
-
 module.exports = {
     getParsedBody,
     delay

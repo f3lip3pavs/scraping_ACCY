@@ -1,25 +1,7 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
-import {Container, Media, Aut, Sharpness, Color, DropStyle} from './style/styleApp'
-
-function Header(){
-    return (
-        <h1>A C C Y</h1>
-    )
-}
-
-function Main(){
-    return (
-        <Container>
-            <Media><span>50%</span></Media>
-            <Aut><span>20%</span></Aut>
-            <Sharpness><span>82%</span></Sharpness>
-            <Color><span>23%</span></Color>
-        </Container>
-
-    )
-}
+import {DropStyle} from '../style/styleApp'
 
 function Dropz() {
 
@@ -32,13 +14,12 @@ function Dropz() {
       
   
         fetch('http://192.168.0.16:3001/post/up', {
-          
           headers:{
             contentType: 'multipart/form-data'
           },
           method: 'POST',
           body: fileForm
-        })    
+        }).then(res => {console.log(res)})    
 
       }  
 
@@ -67,5 +48,4 @@ function Dropz() {
   )
 }
 
-export default Header
-export {Main, Dropz}
+export {Dropz}
