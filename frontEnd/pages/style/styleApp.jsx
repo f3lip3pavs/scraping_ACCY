@@ -1,67 +1,13 @@
-import styled, {css} from "styled-components"
+import styled from "styled-components"
+import 'react-circular-progressbar/dist/styles.css';
 
-export const Container = styled.div`
+// export const Container = styled.div`
   
-  display: flex;
-  justify-content: space-around;
-  padding-left: 200px;
-  padding-right: 200px;
-  margin-top: 50px;
-`;
-
-// export const Media = styled.div`
-  
-//   width: 150px;
-//   height: 150px;
-//   border: 10px solid #404040;
-//   border-right: 10px solid #1effb1;
-//   border-top: 10px solid #1effb1;
-//   border-radius: 50%;
 //   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: white;
-// `;
-
-// export const Aut = styled.div`
-  
-//   width: 100px;
-//   height: 100px;
-//   border: 10px solid whitesmoke;
-//   border-bottom: 10px solid #1effb1;
-//   border-radius: 50%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: white;
-// `;
-
-// export const Sharpness = styled.div`
-  
-//   width: 100px;
-//   height: 100px;
-//   border: 10px solid whitesmoke;
-//   border-left: 10px solid #1effb1;
-//   border-right: 10px solid #1effb1;
-//   border-top: 10px solid #1effb1;
-//   border-radius: 50%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: white;
-// `;
-
-// export const Color = styled.div`
-  
-//   width: 100px;
-//   height: 100px;
-//   border: 10px solid whitesmoke;
-//   border-right: 10px solid #1effb1;
-//   border-radius: 50%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: white;
+//   justify-content: space-around;
+//   padding-left: 200px;
+//   padding-right: 200px;
+//   margin-top: 50px;
 // `;
 
 export const DropStyle = styled.div`
@@ -77,106 +23,39 @@ export const DropStyle = styled.div`
   justify-content: center;
   color: white;
 `;
-function circularBar(n){
 
-  // let style = ''
-  // let porcent =''
-
-  let style = ''
-
-  for(let i=0; i<n+1; i++){
-    let deg = 90 + (3.6 * n)
-    //return `${deg}deg`
-
-    if(n < 51){
-
-      style = `
-      
-      background: linear-gradient(
-        to right, 
-        #1EFFB1 50%, 
-        transparent 50%,
-        transparent
-        ),
-        linear-gradient( 
-        ${deg}deg,
-        #1EFFB1 50%, 
-        #454545 50%
-        )
-      `
-      }else{
-
-      style = `
-      
-      background: linear-gradient(
-        to left, 
-        #1EFFB1 50%, 
-        transparent 50%,
-        transparent
-        ),
-        linear-gradient( 
-        ${deg}deg,
-        #1EFFB1 50%, 
-        #454545 50%
-        )
-      `
-    }
-
-    // style.porcent = `
-
-    //   .circular-bar::before{
-    //     content: '60';
-    //     display: inline-flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     height: 100%;
-    //     width: 100%;
-    //     font-size: 60px;
-    //     background-color: #333;
-    //     transform: scale(0.7);
-    //     border-radius: 50%;
-    //     font-family: monospace;
-    //     color: white
-    //   }
-    // `
-   }
-  // console.log(style)
-  // return (style)
-  return style
-}
+export const Section = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+`;
 
 export const CardStyled = styled.div`
   background-color: #333;
   border-radius: 30px;
   width: 300px;
   height: 400px;
-  /* size: ${(props) => props.lenghtBar}; */
   padding: 20px;
 
-  .circular-bar{
-    display: block;
+  .Progressbar{
     width: 170px;
-    height: 170px;
-    border-radius: 50%;
+    display: block;
     margin: auto;
-    
-
-    ${circularBar(49)}
   }
 
-  .circular-bar::before{
-    content: '80%';
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    font-size: 60px;
-    background-color: #333;
-    transform: scale(0.7);
-    border-radius: 50%;
-    font-family: monospace;
-    color: white
+  .CircularProgressbar-text {
+  fill: white;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  }
+  .CircularProgressbar-path {
+    stroke: #1EFFB1;
+  }
+
+  .CircularProgressbar-trail {
+  stroke: #454545;
+  
   }
 
   h6{
@@ -197,4 +76,93 @@ export const CardStyled = styled.div`
 
 export const OverallStyled = styled.div`
 
+  width: 80%;
+  margin: auto;
+  background-color: #333;
+  /* padding: 40px; */
+  border-radius: 30px;
+  margin-bottom: 5%;
+
+  .top-card{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  h4{
+    text-align: center;
+    color: #1EFFB1;
+    font-size: 25px;
+    margin-top: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .Progressbar{
+    width: 170px;
+    display: block;
+    margin: auto;
+  }
+
+  .CircularProgressbar-text {
+  fill: white;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  }
+  .CircularProgressbar-path {
+    stroke: #1EFFB1;
+  }
+
+  .CircularProgressbar-trail {
+  stroke: #454545;
+  
+  }
+
+  span{
+    background-color: white;
+    display: block;
+    width: 1px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .image-test{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #454545;
+    border-radius: 30px;
+  }
+
+  .bottom-card{
+    background-color: #272727;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+  h6{
+    margin: 0 !important;
+    color: #1EFFB1;
+    font-size: 25px;
+    margin-top: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  li{
+    color: white;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-left: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
 `;
