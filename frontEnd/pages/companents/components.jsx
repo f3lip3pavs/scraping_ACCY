@@ -13,13 +13,13 @@ function Dropz() {
       fileForm.append('file', file)
       
   
-        fetch('http://192.168.0.16:3001/post/up', {
+        fetch('http://192.168.0.76:3001/post/up', {//ACCY: http://192.168.0.16:3001
           headers:{
             contentType: 'multipart/form-data'
           },
           method: 'POST',
           body: fileForm
-        }).then(res => {console.log(res)})    
+        }).then(res => {return res.json()}).then(json => {console.log(json)})    
 
       }  
 
