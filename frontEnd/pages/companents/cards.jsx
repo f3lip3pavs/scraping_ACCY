@@ -47,6 +47,3 @@ export function Card(props) {
         </CardStyled>
     );
 }
-
-// export default Overall
-// export { Card }
