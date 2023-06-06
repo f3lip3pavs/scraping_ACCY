@@ -1,10 +1,17 @@
-// import React, { useState } from "react";
+//alterar nome do arquivo para drop.jsx
+
+import React, { useState } from "react";
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {DropStyle} from '../style/styleApp'
+import {CardsContext} from "../context/cardsProvider.jsx";
+import {useContext} from 'react'
 
-function Dropz() {
+function Dropz({result}) {
 
+  //const [json, setJason] = useState({})
+  let [json, setJason] = useContext(CardsContext)
+  //json = {}
   const onDrop = useCallback(acceptedFiles => {
 
     const upload = (file) =>{
@@ -13,13 +20,26 @@ function Dropz() {
       fileForm.append('file', file)
       
   
-        fetch('http://192.168.0.76:3001/post/up', {//ACCY: http://192.168.0.16:3001
+        fetch('http://192.168.0.16:3001/post/up', {//ACCY: http://192.168.0.16:3001
           headers:{
             contentType: 'multipart/form-data'
           },
           method: 'POST',
           body: fileForm
-        }).then(res => {return res.json()}).then(json => {console.log(json)})    
+        }).then(res => {return res.json()}).then(jsonRes => {
+          const obj = JSON.parse(jsonRes)
+
+          setJason({
+            json,
+            overall: obj.overall,
+            uniqueness: obj.uniqueness,
+            legibility: obj.legibility,
+            color: obj.color
+          });
+
+          console.log(json)
+
+        })    
 
       }  
 
@@ -37,6 +57,7 @@ function Dropz() {
 
   return (
     <DropStyle {...getRootProps()} >
+     
         <input {...getInputProps()}/>
         {
           isDragActive ?

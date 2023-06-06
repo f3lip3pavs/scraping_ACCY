@@ -30,14 +30,10 @@ route.post('/up', upload.single('file'), (req, res, next) => {
               if(err)
                 console.log(err)
             })
-            res.json({'uniqueness':list[0], 'Legibility':list[1], 'color': list[2], 'overall': list[3]})
+            const obj = {'uniqueness':list[0], 'legibility':list[1], 'color': list[2], 'overall': list[3]}
+            res.json(JSON.stringify(obj))
             return list
           })
-<<<<<<< HEAD
-          
-=======
-            res.send(list)//alterei de ma string para list
->>>>>>> e9e3f74 (resolve conflits)
             list = []
         }catch(err){
             console.log(err)
