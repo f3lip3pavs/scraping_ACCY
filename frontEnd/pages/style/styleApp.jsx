@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import 'react-circular-progressbar/dist/styles.css';
-
+import {CardsContext} from "../context/cardsProvider.jsx";
+import {useContext} from 'react'
 
 export const HeaderStyle = styled.header`
   padding: 40px;
@@ -41,6 +42,8 @@ export const DropStyle = styled.div`
   align-items: center;  
   justify-content: center;
   color: white;
+  display: ${props => props.hidden};
+
 `;
 
 export const Section = styled.section`
@@ -54,6 +57,8 @@ export const CardStyled = styled.div`
   width: 300px;
   height: 400px;
   padding: 20px;
+  margin-bottom: 20px;
+  display: ${props => props.onHidden == 'none'? '' : 'none'};
 
   .Progressbar{
     width: 170px;
@@ -98,9 +103,9 @@ export const OverallStyled = styled.div`
   width: 80%;
   margin: auto;
   background-color: #333;
-  /* padding: 40px; */
   border-radius: 30px;
   margin-bottom: 5%;
+  display: ${props => props.onHidden === 'none'? '' : 'none'};
 
   .top-card{
     display: flex;
@@ -189,6 +194,7 @@ export const OverallStyled = styled.div`
 export const CoverStyle = styled.div`
   
   margin-top: 40px;
+  display: ${props => props.hidden};
 
   .container{
 
@@ -224,6 +230,7 @@ export const HintStyle = styled.div`
   margin: auto;
   margin-top: 10px;
   margin-bottom: 60px;
+  display: ${props => props.hidden};
 
   p{
     padding: 20px;

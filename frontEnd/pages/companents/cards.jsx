@@ -5,12 +5,12 @@ import 'react-circular-progressbar/dist/styles.css';
 import {CardsContext} from "../context/cardsProvider.jsx";
 import {useContext} from 'react'
 
-export function Overall(props) {
+export function Overall() {
 
-    let [json, setJason] = useContext(CardsContext)
+    let [json, setJason, droped, setDroped] = useContext(CardsContext)
 
     return (
-        <OverallStyled>
+        <OverallStyled onHidden={ droped }>
 
             <div className='top-card'>
                     <div>
@@ -37,12 +37,12 @@ export function Overall(props) {
 
 export function Card(props) {
 
-    let [json, setJason] = useContext(CardsContext)
+    let [json, setJason, droped, setDroped] = useContext(CardsContext)
     
     const name = props.name;
 
     return (
-        <CardStyled>
+        <CardStyled onHidden={ droped }>
             <span className='circular-bar'></span>
             <CircularProgressbar className='Progressbar' value={json[name]} text={`${json[name]}%`} strokeWidth={15}/>
             <h6>{props.title}</h6>

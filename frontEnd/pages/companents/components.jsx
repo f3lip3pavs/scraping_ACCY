@@ -1,17 +1,17 @@
 //alterar nome do arquivo para drop.jsx
 
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {DropStyle} from '../style/styleApp'
 import {CardsContext} from "../context/cardsProvider.jsx";
 import {useContext} from 'react'
 
-function Dropz({result}) {
+function Dropz() {
+  
+  let [json, setJason, droped, setDroped] = useContext(CardsContext)
+  
 
-  //const [json, setJason] = useState({})
-  let [json, setJason] = useContext(CardsContext)
-  //json = {}
   const onDrop = useCallback(acceptedFiles => {
 
     const upload = (file) =>{
@@ -37,7 +37,7 @@ function Dropz({result}) {
             color: obj.color
           });
 
-          console.log(json)
+          setDroped('none')
 
         })    
 
@@ -47,6 +47,10 @@ function Dropz({result}) {
 
   }, [])
 
+  // useEffect(() => {
+  //   console.log('hidden from dropz: ', droped)
+  // }, [droped])
+
   const {getRootProps, getInputProps, isDragActive} = useDropzone({
     onDrop,
     maxFiles: 1,
@@ -54,10 +58,11 @@ function Dropz({result}) {
       'image/jpge': ['.jpeg', '.png', '.jpg']
     }
   })
+  
 
   return (
-    <DropStyle {...getRootProps()} >
-     
+    <DropStyle {...getRootProps()} hidden={ droped }>
+ 
         <input {...getInputProps()}/>
         {
           isDragActive ?
@@ -69,4 +74,4 @@ function Dropz({result}) {
   )
 }
 
-export {Dropz}
+export {Dropz}  

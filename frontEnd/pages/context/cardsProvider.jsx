@@ -10,9 +10,13 @@ export default function CardsProvider(props){
         legibility:'',
         color:'',
     })
+
+    let [droped, setDroped] = useState('')
+
+    
     
     return(
-        <CardsContext.Provider value={[json, setJason]}> 
+        <CardsContext.Provider value={[json, setJason, droped, setDroped]}> 
             {props.children}
         </CardsContext.Provider>
     )

@@ -1,5 +1,6 @@
 import React from "react";
-// import {motion} from 'framer-motion'
+import {CardsContext} from "../context/cardsProvider.jsx";
+import {useContext} from 'react'
 import {CoverStyle} from '../style/styleApp'
 
 import img1 from '../assets/airbnb.png'
@@ -17,38 +18,15 @@ import img10 from '../assets/starbucks.png'
 
 export default function Cover() {
 
-    // function loopImages(){
-
-    //     setTimeout(()=>{
-
-    //         for(i = 0; i == true; i++){
-    //             let id = 0
-
-    //             if(i < 10){
-
-    //                 <div className="item" key={id++}>            
-                                                
-    //                     <img src={images[i]} alt="alt" />
-                                            
-    //                 </div>
-
-    //             }else{
-    //                 i = 0
-    //             }
-    //         }
-
-    //     })
-        
-    // }
+    let [json, setJason, droped, setDroped] = useContext(CardsContext)
 
     return(
-        <CoverStyle>
+        <CoverStyle hidden={ droped }>
 
             <div className="container">
                 <div className="slide-box" drag='x'>
-                    {images.map( image =>(
-                        <div className="item" key={image}>
-                            {console.log(image)}
+                    {images.map( (image, index) =>(
+                        <div className="item" key={index}>
                             <img src={image.src} alt="alt" />
                         </div>
                     ))}
