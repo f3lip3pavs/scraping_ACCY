@@ -1,18 +1,37 @@
 import styled from "styled-components"
 import 'react-circular-progressbar/dist/styles.css';
 
-// export const Container = styled.div`
-  
-//   display: flex;
-//   justify-content: space-around;
-//   padding-left: 200px;
-//   padding-right: 200px;
-//   margin-top: 50px;
-// `;
+
+export const HeaderStyle = styled.header`
+  padding: 40px;
+  .logo{
+    color: white;
+    display: flex;
+    height: 5vh;
+    width: 300px;
+  }
+
+  h1{
+    font-family: monospace;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-weight: 100;
+  }
+
+  span{
+    display: block;
+    width: 1px;
+    background-color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+`
 
 export const DropStyle = styled.div`
 
-  width: 450px;
+  width: 1000px;
   height: 300px;
   background-color: #282c34;
   border: 2px dashed whitesmoke;
@@ -166,3 +185,49 @@ export const OverallStyled = styled.div`
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 `;
+
+export const CoverStyle = styled.div`
+  
+  margin-top: 40px;
+
+  .container{
+
+  }
+
+  .slide-box{
+    display: flex;
+    justify-content: center;
+    animation: slider 10s linear;
+    width: 90%;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: auto;
+  }
+  
+  .item img{
+    width: 100px;
+    padding: 50px;
+  }
+
+  @keyframes slider {
+    to{transform: translateX(-250px)}
+    from{transform: translateX(500px)}
+  }
+`
+
+export const HintStyle = styled.div`
+
+  width: 80%;
+  background-color: #45ff452b;
+  border-left: 10px solid green;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 60px;
+
+  p{
+    padding: 20px;
+    color: white;
+    font-family: sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+`

@@ -1,8 +1,17 @@
-function Header(){
+import { HeaderStyle } from "../style/styleApp"
+import logo from '../assets/accy.png'
+
+
+function Header(props){
+
     return (
-        <header>
-            <h1>A C C Y</h1>
-        </header>
+        <HeaderStyle>
+            <div className="logo">
+                <img src={logo.src} alt="" />
+                <span></span>
+                <h1>A C C Y</h1>
+            </div>
+        </HeaderStyle>
     )
 }
 
