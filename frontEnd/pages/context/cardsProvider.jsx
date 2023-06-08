@@ -11,7 +11,7 @@ export default function CardsProvider(props){
         color:'',
     })
 
-    let [droped, setDroped] = useState('')
+    let [droped, setDroped] = useState('')//estulizando aplicação. trocar para '' apos finalizar
 
     
     

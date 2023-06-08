@@ -19,14 +19,20 @@ function Dropz() {
       const fileForm = new FormData()
       fileForm.append('file', file)
       
-  
-        fetch('http://192.168.0.16:3001/post/up', {//ACCY: http://192.168.0.16:3001
-          headers:{
+      setDroped('none')
+      
+        fetch('http://192.168.0.16:3001/post/up', {//ACCY: http://192.168.0.16:3001  
+        headers:{
             contentType: 'multipart/form-data'
           },
           method: 'POST',
           body: fileForm
-        }).then(res => {return res.json()}).then(jsonRes => {
+        })
+        .then(res => {
+          //setDroped('none')
+          return res.json()
+        })
+        .then(jsonRes => {
           const obj = JSON.parse(jsonRes)
 
           setJason({
@@ -36,8 +42,8 @@ function Dropz() {
             legibility: obj.legibility,
             color: obj.color
           });
-
-          setDroped('none')
+          //testar função nos escopos a cima (dentro de fetch)
+          // setDroped('none') // responsavel pela funcionalidade hidden para fazer desaparecer a capa e aparecer o dashboard
 
         })    
 

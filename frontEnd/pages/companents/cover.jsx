@@ -20,16 +20,34 @@ export default function Cover() {
 
     let [json, setJason, droped, setDroped] = useContext(CardsContext)
 
+    let imgs = ['']
+    function loopSlider(){
+
+        for(let i = 0; i < 10; i++){
+
+            
+                imgs.push(...images)
+            
+
+            // console.log(imgs)
+        }           
+        
+    }
+
+    loopSlider()
+
     return(
         <CoverStyle hidden={ droped }>
 
             <div className="container">
                 <div className="slide-box" drag='x'>
-                    {images.map( (image, index) =>(
+                    {
+                    imgs.map( (image, index) =>(
                         <div className="item" key={index}>
                             <img src={image.src} alt="alt" />
                         </div>
-                    ))}
+                        ))
+                    }
                 </div>
             </div>
 

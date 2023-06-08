@@ -14,18 +14,19 @@ function App() {
   return (
     <main>
       <GlobalStyle/>
-      <Header/>
+      
       <CardsProvider>
+        <Header/>
         <Hint/>
         <Overall title='titulo'/>
-        <Section>
-          <Card name={'color'} title='titulo'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
-          the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
-          <Card name={'uniqueness'} title='titulo'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
-          the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
-          <Card name={'legibility'} title='titulo'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
-          the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
-        </Section>
+          <Section>
+            <Card name={'color'} title='Cor'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
+            <Card name={'uniqueness'} title='Autenticidade'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
+            <Card name={'legibility'} title='Legibilidade'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
+          </Section>
         <Dropz/>
         <Cover/>
       </CardsProvider>

@@ -5,6 +5,24 @@ import {useContext} from 'react'
 
 export const HeaderStyle = styled.header`
   padding: 40px;
+  display: flex;
+  justify-content: space-between;
+
+  .back{
+    background-color: white;
+    display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    font-weight: 100;
+  }
+
+  .back:hover{
+    background-color: #e9e9e9;
+  }
+
   .logo{
     color: white;
     display: flex;
@@ -60,9 +78,25 @@ export const CardStyled = styled.div`
   margin-bottom: 20px;
   display: ${props => props.onHidden == 'none'? '' : 'none'};
 
+  .loading{
+    display: ${props => props.onLoading};
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-bottom: 3px solid #02c6f7;
+    border-left: 3px solid #02c6f7;
+    border-radius: 50%;
+    animation: loading 1s linear infinite;
+  }
+
+  @keyframes loading {
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+  }
+
   .Progressbar{
+    display: ${props => props.onLoading == 'none'? 'block' : 'none' };
     width: 170px;
-    display: block;
     margin: auto;
   }
 
@@ -105,7 +139,31 @@ export const OverallStyled = styled.div`
   background-color: #333;
   border-radius: 30px;
   margin-bottom: 5%;
-  display: ${props => props.onHidden === 'none'? '' : 'none'};
+  display: ${props => props.onHidden == 'none'? '' : 'none'};
+
+  .loading{
+    display: ${props => props.onLoading};
+    margin: auto;
+    width: 170px;
+    height: 170px;
+    background: none;
+    border-bottom: 3px solid #02c6f7;
+    border-left: 3px solid #02c6f7;
+    border-radius: 50%;
+    animation: loading 1s linear infinite;
+  }
+
+  @keyframes loading {
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+  }
+
+  .overall-progressbar{
+    display: ${props => props.onLoading == 'none'? 'block' : 'none' };
+    ${props => console.log('onLoading', props.onLoading)}
+    width: 170px;
+    margin: auto;
+  }
 
   .top-card{
     display: flex;
@@ -119,12 +177,6 @@ export const OverallStyled = styled.div`
     font-size: 25px;
     margin-top: 5px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-
-  .Progressbar{
-    width: 170px;
-    display: block;
-    margin: auto;
   }
 
   .CircularProgressbar-text {
@@ -189,6 +241,23 @@ export const OverallStyled = styled.div`
     margin-left: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
+
+  .spiner-container{
+    position: relative;
+  }
+
+  .texto{
+    display: ${props => props.onLoading};
+    background: none;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-size: 20px;
+  }
 `;
 
 export const CoverStyle = styled.div`
@@ -203,10 +272,10 @@ export const CoverStyle = styled.div`
   .slide-box{
     display: flex;
     justify-content: center;
-    animation: slider 10s linear;
+    animation: slider 100s linear infinite;
     width: 90%;
-    box-sizing: border-box;
-    overflow: hidden;
+    /* box-sizing: border-box;
+    overflow: hidden; */
     margin: auto;
   }
   
@@ -216,8 +285,8 @@ export const CoverStyle = styled.div`
   }
 
   @keyframes slider {
-    to{transform: translateX(-250px)}
     from{transform: translateX(500px)}
+    to{transform: translateX(-5000px)}
   }
 `
 
