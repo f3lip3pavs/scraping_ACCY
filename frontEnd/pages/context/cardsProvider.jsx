@@ -9,10 +9,12 @@ export default function CardsProvider(props){
         uniqueness:'',
         legibility:'',
         color:'',
+        url:''
     })
 
-    let [droped, setDroped] = useState('')//estulizando aplicação. trocar para '' apos finalizar
+    let [droped, setDroped] = useState('')//estilizando aplicação. trocar para '' apos finalizar
 
+    //let printImage
     
     
     return(

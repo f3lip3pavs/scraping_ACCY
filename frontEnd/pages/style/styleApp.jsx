@@ -3,6 +3,10 @@ import 'react-circular-progressbar/dist/styles.css';
 import {CardsContext} from "../context/cardsProvider.jsx";
 import {useContext} from 'react'
 
+import img1 from '../assets/accy.png'
+import img2 from '../assets/airbnb.png'
+import img3 from '../assets/dell.png'
+
 export const HeaderStyle = styled.header`
   padding: 40px;
   display: flex;
@@ -134,7 +138,7 @@ export const CardStyled = styled.div`
 
 export const OverallStyled = styled.div`
 
-  width: 80%;
+  display: table;
   margin: auto;
   background-color: #333;
   border-radius: 30px;
@@ -167,8 +171,17 @@ export const OverallStyled = styled.div`
 
   .top-card{
     display: flex;
-    justify-content: space-between;
     padding: 20px;
+  }
+
+  .image-test{
+    display: flex;
+    width: 100%;
+    background-image: url(${props => props.urlImage});
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    border-radius: 30px;
   }
 
   h4{
@@ -203,15 +216,6 @@ export const OverallStyled = styled.div`
     margin-bottom: 5%;
     margin-left: 20px;
     margin-right: 20px;
-  }
-
-  .image-test{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: #454545;
-    border-radius: 30px;
   }
 
   .bottom-card{

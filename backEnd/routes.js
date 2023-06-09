@@ -20,8 +20,11 @@ let list = []
 route.post('/up', upload.single('file'), (req, res, next) => {
         
         try{
+
           console.log('arquivo enviado para porta 3001')
           console.log(req.file)
+          
+
           getParsedBody('https://brandmark.io/logo-rank/', req.file.filename)
           .then(result => {
             list.push(...result)
@@ -38,19 +41,6 @@ route.post('/up', upload.single('file'), (req, res, next) => {
         }catch(err){
             console.log(err)
         }
-})
-
-route.get('/up', (req, res) => {
-        
-  try{
-     res.send('ola')
-  }catch(err){
-      res.send(err)
-  }
-})
-
-route.get('/list', (req, res) => {
-  res.json({'ola': 'mundo'})
 })
 
 module.exports = route

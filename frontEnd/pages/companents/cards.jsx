@@ -5,6 +5,10 @@ import 'react-circular-progressbar/dist/styles.css';
 import {CardsContext} from "../context/cardsProvider.jsx";
 import {useContext, useState, useEffect} from 'react'
 
+import img1 from '../assets/accy.png'
+import img2 from '../assets/airbnb.png'
+import img3 from '../assets/dell.png'
+
 export function Overall() {
 
     let [json, setJason, droped, setDroped] = useContext(CardsContext)
@@ -53,8 +57,8 @@ export function Overall() {
             onLoading={
                 json.overall == ''? 'block' : 'none'
             }
+            urlImage={json.url}
         >
-
             <div className='top-card'>
                     <div>
                         <h4>Média</h4>
@@ -66,7 +70,7 @@ export function Overall() {
                         <CircularProgressbar className='overall-progressbar' value={json.overall} text={`${json.overall}%`} strokeWidth={15}/>
                     </div>
                     <span>|</span>
-                    <div className='image-test'>img</div>
+                    <div className='image-test'></div>
                 </div>
                 <div className='bottom-card'>
                     <h6>Principais Pontos</h6>
@@ -79,7 +83,6 @@ export function Overall() {
         
 
         </OverallStyled>     
-
     );
 }
 

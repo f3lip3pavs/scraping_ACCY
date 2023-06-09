@@ -10,11 +10,19 @@ import {useContext} from 'react'
 function Dropz() {
   
   let [json, setJason, droped, setDroped] = useContext(CardsContext)
-  
 
   const onDrop = useCallback(acceptedFiles => {
 
+    //const img = []
+    //const url = URL.createObjectURL(acceptedFiles)
+
     const upload = (file) =>{
+
+      const fr = new FileReader()
+      fr.readAsDataURL(file)
+      
+      
+      //img[0] = acceptedFiles
 
       const fileForm = new FormData()
       fileForm.append('file', file)
@@ -34,16 +42,16 @@ function Dropz() {
         })
         .then(jsonRes => {
           const obj = JSON.parse(jsonRes)
-
+          console.log('acceptedFiles: ', acceptedFiles)
+          
           setJason({
             json,
             overall: obj.overall,
             uniqueness: obj.uniqueness,
             legibility: obj.legibility,
-            color: obj.color
+            color: obj.color,
+            url: fr.result
           });
-          //testar função nos escopos a cima (dentro de fetch)
-          // setDroped('none') // responsavel pela funcionalidade hidden para fazer desaparecer a capa e aparecer o dashboard
 
         })    
 
@@ -52,10 +60,6 @@ function Dropz() {
       upload(acceptedFiles[0])
 
   }, [])
-
-  // useEffect(() => {
-  //   console.log('hidden from dropz: ', droped)
-  // }, [droped])
 
   const {getRootProps, getInputProps, isDragActive} = useDropzone({
     onDrop,
@@ -68,8 +72,9 @@ function Dropz() {
 
   return (
     <DropStyle {...getRootProps()} hidden={ droped }>
- 
+    
         <input {...getInputProps()}/>
+  
         {
           isDragActive ?
             <p>Solte o arquivo aqui...</p> 
