@@ -1,12 +1,12 @@
-import {Dropz} from "./companents/components"
-import {GlobalStyle} from './style/GlobalStyle'
-import Header from "./companents/header";
-import {Overall, Card} from "./companents/cards";
-import Footer from "./companents/footer";
-import {Section} from './style/styleApp'
-import CardsProvider from "./context/cardsProvider.jsx";
-import Cover from './companents/cover'
-import Hint from './companents/Hint'
+import {Dropz} from "../companents/components"
+import {GlobalStyle} from '../style/GlobalStyle'
+import Header from "../companents/header";
+import {Overall, Card} from "../companents/cards/cards";
+import Footer from "../companents/footer";
+import {Section} from '../style/styleApp'
+import CardsProvider from "../context/cardsProvider";
+import Cover from '../companents/cover'
+import Hint from '../companents/Hint'
 
 
 function App() {
@@ -18,15 +18,19 @@ function App() {
       <CardsProvider>
         <Header/>
         <Hint/>
-        <Overall title='titulo'/>
+        
           <Section>
-            <Card name={'color'} title='Cor'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
-            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
-            <Card name={'uniqueness'} title='Autenticidade'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
-            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
-            <Card name={'legibility'} title='Legibilidade'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
-            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a </Card>
+            <Card name={'color'} title='Cor'>A cor e o contraste podem ajudar a chamar a atenção para a sua marca. 
+            Embora a cor seja muito subjetiva, a psicologia da cor é uma das formas mais eficazes de estabelecer o 
+            posicionamento da marca.</Card>
+            <Card name={'uniqueness'} title='Autenticidade'>Essa métrica é baseada na semelhança do logotipo com 
+            nossa biblioteca de mais de 1 milhão de ícones. O design de logotipo ideal é visualmente único, 
+            facilmente distinguido de imagens de estoque e outras formas comuns.</Card>
+            <Card name={'legibility'} title='Legibilidade'>Uma silhueta forte e ousada é a marca registrada de 
+            grandes logotipos. Ela garante que a marca possa ser reconhecida rapidamente em baixas resoluções, de longe, em 
+            dispositivos móveis e em movimento</Card>
           </Section>
+          <Overall title='titulo'/>
         <Dropz/>
         <Cover/>
       </CardsProvider>

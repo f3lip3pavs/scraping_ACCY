@@ -1,5 +1,5 @@
 import React from "react";
-import {CardsContext} from "../context/cardsProvider.jsx";
+import {CardsContext} from "../context/cardsProvider";
 import {useContext} from 'react'
 import {CoverStyle} from '../style/styleApp'
 

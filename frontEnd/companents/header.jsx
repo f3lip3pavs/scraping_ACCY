@@ -1,6 +1,6 @@
 import { HeaderStyle } from "../style/styleApp"
 import logo from '../assets/accy.png'
-import {CardsContext} from "../context/cardsProvider.jsx";
+import {CardsContext} from "../context/cardsProvider";
 import {useContext, useEffect} from 'react'
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {HintStyle} from '../style/styleApp'
 import {useEffect} from 'react'
-import {CardsContext} from "../context/cardsProvider.jsx";
+import {CardsContext} from "../context/cardsProvider";
 import {useContext} from 'react'
 
 export default function Hint() {

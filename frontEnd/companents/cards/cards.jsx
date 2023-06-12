@@ -1,17 +1,15 @@
 
-import { OverallStyled, CardStyled } from '../style/styleApp.jsx'
+import { OverallStyled, CardStyled } from '../../style/styleApp'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import {CardsContext} from "../context/cardsProvider.jsx";
+import {CardsContext} from "../../context/cardsProvider";
 import {useContext, useState, useEffect} from 'react'
-
-import img1 from '../assets/accy.png'
-import img2 from '../assets/airbnb.png'
-import img3 from '../assets/dell.png'
+import txtResult from './txtResult';
 
 export function Overall() {
 
     let [json, setJason, droped, setDroped] = useContext(CardsContext)
+    const [textRecomendation, setTextRecomendation] = useState([]);
     const [text, setText]  = useState('Carregando imagem...') 
 
     useEffect(()=>{
@@ -48,10 +46,27 @@ export function Overall() {
         }
     }, [droped, json])
 
-    
+useEffect(()=>{
+    if(json.overall >= 90){
+        setTextRecomendation(txtResult[90])
+    }else if(json.overall >= 80 && json.overall <= 89){
+        setTextRecomendation(txtResult[80])
+    }else if(json.overall >= 70 && json.overall <= 79){
+        setTextRecomendation(txtResult[70])
+    }else if(json.overall >= 50 && json.overall <= 69){
+        setTextRecomendation(txtResult[50])
+    }else if(json.overall == 0){
+        setTextRecomendation([])
+    }else{
+        setTextRecomendation(txtResult[0])
+    }
+}, [json])
 
+    console.log('txtResult: ', txtResult)
+    console.log('textRecomendation: ', textRecomendation)
 
     return (
+
         <OverallStyled 
             onHidden={ droped }
             onLoading={
@@ -75,13 +90,15 @@ export function Overall() {
                 <div className='bottom-card'>
                     <h6>Principais Pontos</h6>
                     <ul>
-                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</li>
-                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</li>
-                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</li>
+                        {
+                            textRecomendation.map((item, index) => //nao deve conter {} apos o arrow '=>'
+                                <li key={index}>{item}</li>
+                            )
+                        }
+                        
                     </ul>
                 </div>
         
-
         </OverallStyled>     
     );
 }

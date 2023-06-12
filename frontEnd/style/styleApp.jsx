@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import 'react-circular-progressbar/dist/styles.css';
-import {CardsContext} from "../context/cardsProvider.jsx";
+import {CardsContext} from "../context/cardsProvider";
 import {useContext} from 'react'
 
 import img1 from '../assets/accy.png'
@@ -71,6 +71,8 @@ export const DropStyle = styled.div`
 export const Section = styled.section`
   display: flex;
   justify-content: space-evenly;
+  width: 70%;
+  margin: auto;
 `;
 
 export const CardStyled = styled.div`
@@ -79,7 +81,7 @@ export const CardStyled = styled.div`
   width: 300px;
   height: 400px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 3%;
   display: ${props => props.onHidden == 'none'? '' : 'none'};
 
   .loading{
@@ -140,9 +142,10 @@ export const OverallStyled = styled.div`
 
   display: table;
   margin: auto;
+  width: 40%;
   background-color: #333;
   border-radius: 30px;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   display: ${props => props.onHidden == 'none'? '' : 'none'};
 
   .loading{

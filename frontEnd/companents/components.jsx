@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {DropStyle} from '../style/styleApp'
-import {CardsContext} from "../context/cardsProvider.jsx";
+import {CardsContext} from "../context/cardsProvider";
 import {useContext} from 'react'
 
 function Dropz() {
