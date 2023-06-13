@@ -294,7 +294,8 @@ export const CoverStyle = styled.div`
   display: ${props => props.hidden};
 
   .container{
-
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .slide-box{
@@ -302,8 +303,6 @@ export const CoverStyle = styled.div`
     justify-content: center;
     animation: slider 100s linear infinite;
     width: 90%;
-    /* box-sizing: border-box;
-    overflow: hidden; */
     margin: auto;
   }
   
