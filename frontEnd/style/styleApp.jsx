@@ -1,11 +1,5 @@
 import styled from "styled-components"
 import 'react-circular-progressbar/dist/styles.css';
-import {CardsContext} from "../context/cardsProvider";
-import {useContext} from 'react'
-
-import img1 from '../assets/accy.png'
-import img2 from '../assets/airbnb.png'
-import img3 from '../assets/dell.png'
 
 export const HeaderStyle = styled.header`
   padding: 40px;
@@ -141,8 +135,8 @@ export const CardStyled = styled.div`
 export const OverallStyled = styled.div`
 
   display: table;
-  margin: auto;
-  width: 40%;
+  /* margin: auto; */
+  width: 62%;
   background-color: #333;
   border-radius: 30px;
   margin-bottom: 2%;
@@ -265,6 +259,33 @@ export const OverallStyled = styled.div`
     color: white;
     font-size: 20px;
   }
+`;
+
+export const StyleRecomendation = styled.div`
+
+  width: 34%;
+  background-color: #333;
+  max-height: 340px;
+  border-radius: 30px;
+  display: ${props => props.onHidden == 'none'? '' : 'none'};
+
+  h6{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    color: #1EFFB1;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  li{
+    font-size: 17px;
+    margin-left: 40px;
+    margin-right: 30px;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
 `;
 
 export const CoverStyle = styled.div`

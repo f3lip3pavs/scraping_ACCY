@@ -9,7 +9,6 @@ import txtResult from './txtResult';
 export function Overall() {
 
     let [json, setJason, droped, setDroped] = useContext(CardsContext)
-    const [textRecomendation, setTextRecomendation] = useState([]);
     const [text, setText]  = useState('Carregando imagem...') 
 
     useEffect(()=>{
@@ -46,24 +45,38 @@ export function Overall() {
         }
     }, [droped, json])
 
-useEffect(()=>{
-    if(json.overall >= 90){
-        setTextRecomendation(txtResult[90])
-    }else if(json.overall >= 80 && json.overall <= 89){
-        setTextRecomendation(txtResult[80])
-    }else if(json.overall >= 70 && json.overall <= 79){
-        setTextRecomendation(txtResult[70])
-    }else if(json.overall >= 50 && json.overall <= 69){
-        setTextRecomendation(txtResult[50])
-    }else if(json.overall == 0){
-        setTextRecomendation([])
-    }else{
-        setTextRecomendation(txtResult[0])
-    }
-}, [json])
+    let metrics = []
+    let corPercent = 70
+    let uniquenessPercent = 90
+    let legibilityPercent = 70
 
-    console.log('txtResult: ', txtResult)
-    console.log('textRecomendation: ', textRecomendation)
+    if(json.color < corPercent){
+        metrics[0] = `Seu nível de cor esta abaixo da média de ${corPercent}% do marcado`
+        console.log('color: ', metrics[0])
+
+    }else{
+        metrics[0] = `Seu nível de cor esta acima da média de ${corPercent}% do marcado`
+        console.log('color: ', metrics[0])
+
+    }if(json.uniqueness < uniquenessPercent){
+        metrics[1] = `Seu nível de autenticidade está abaixo da média de ${uniquenessPercent}% do marcado`
+        console.log('uniquenessPercent: ', metrics[1])
+
+    }else{
+        metrics[1] = `Seu nível de autenticidade está acima da média de ${uniquenessPercent}% do marcado`
+        console.log('uniquenessPercent: ', metrics[1])
+
+    }
+    
+    if(json.legibility < legibilityPercent){
+        metrics[2] = `Seu nível de legibilidade está abaixo da média de ${legibilityPercent}% do marcado`
+        console.log('legibility: ', metrics[2])
+
+    }else{
+        metrics[2] = `Seu nível de legibilidade está acima da média de ${legibilityPercent}% do marcado`
+        console.log('legibility: ', metrics[2])
+    }
+  
 
     return (
 
@@ -81,7 +94,7 @@ useEffect(()=>{
                             <span className='texto'>{text}</span>
                             <span className='loading'></span>
                         </div>
-                        {/* <span className='loading'></span> */}
+
                         <CircularProgressbar className='overall-progressbar' value={json.overall} text={`${json.overall}%`} strokeWidth={15}/>
                     </div>
                     <span>|</span>
@@ -91,14 +104,22 @@ useEffect(()=>{
                     <h6>Principais Pontos</h6>
                     <ul>
                         {
-                            textRecomendation.map((item, index) => //nao deve conter {} apos o arrow '=>'
-                                <li key={index}>{item}</li>
-                            )
+                            json.overall != ''?
+                            <>
+                            <li>{metrics[0]}</li>
+                            <li>{metrics[1]}</li>
+                            <li>{metrics[2]}</li>
+                            </>
+                            :
+                            <>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            </>
                         }
-                        
                     </ul>
                 </div>
-        
+
         </OverallStyled>     
     );
 }

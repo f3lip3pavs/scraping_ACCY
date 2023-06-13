@@ -1,6 +1,4 @@
-//alterar nome do arquivo para drop.jsx
-
-import React, { useEffect } from "react";
+import React from "react";
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {DropStyle} from '../style/styleApp'
@@ -13,16 +11,10 @@ function Dropz() {
 
   const onDrop = useCallback(acceptedFiles => {
 
-    //const img = []
-    //const url = URL.createObjectURL(acceptedFiles)
-
     const upload = (file) =>{
 
       const fr = new FileReader()
       fr.readAsDataURL(file)
-      
-      
-      //img[0] = acceptedFiles
 
       const fileForm = new FormData()
       fileForm.append('file', file)
@@ -37,7 +29,7 @@ function Dropz() {
           body: fileForm
         })
         .then(res => {
-          //setDroped('none')
+
           return res.json()
         })
         .then(jsonRes => {

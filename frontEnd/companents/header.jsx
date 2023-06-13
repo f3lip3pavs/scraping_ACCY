@@ -4,7 +4,7 @@ import {CardsContext} from "../context/cardsProvider";
 import {useContext, useEffect} from 'react'
 
 
-function Header(props){
+function Header(){
 
     let [json, setJason, droped, setDroped] = useContext(CardsContext)
 

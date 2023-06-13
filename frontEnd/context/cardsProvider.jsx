@@ -12,10 +12,7 @@ export default function CardsProvider(props){
         url:''
     })
 
-    let [droped, setDroped] = useState('')//estilizando aplicação. trocar para '' apos finalizar
-
-    //let printImage
-    
+    let [droped, setDroped] = useState('')    
     
     return(
         <CardsContext.Provider value={[json, setJason, droped, setDroped]}> 

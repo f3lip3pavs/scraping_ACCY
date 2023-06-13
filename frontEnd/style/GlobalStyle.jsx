@@ -10,4 +10,13 @@ export const GlobalStyle = createGlobalStyle`
   body{
   background-color: #202020;
   }
+
+  .overall-container{
+    display: flex;
+    width: 67%;
+    margin: auto;
+    justify-content: center;
+    justify-content: space-around;
+  };
+
 `
