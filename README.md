@@ -30,5 +30,9 @@ dificuldades pontuais:
 
 
 
-https://github.com/f3lip3pavs/scraping_ACCY/assets/74160667/151b207d-4194-49c8-aa2b-7ecba6396ada
+
+
+
+
+https://github.com/f3lip3pavs/scraping_ACCY/assets/74160667/2e2bd0c9-9f3e-44b8-a77d-245afcfcad00
 
