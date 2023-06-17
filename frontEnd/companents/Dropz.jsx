@@ -21,7 +21,7 @@ function Dropz() {
       
       setDroped('none')
       
-        fetch('http://192.168.0.16:3001/post/up', {//ACCY: http://192.168.0.16:3001  
+        fetch('https://api-logoanalysis.onrender.com/post/up', {//ACCY: http://192.168.0.16:3001  
         headers:{
             contentType: 'multipart/form-data'
           },

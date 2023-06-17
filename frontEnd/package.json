@@ -12,7 +12,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "buid": "next build",
+    "start": "next start"
   },
   "keywords": [],
   "author": "",
